@@ -56,7 +56,6 @@ describe('refResolver', function() {
         var result = new RefResolver.Resolver(testData).resolve();
         assert.equal('Red', result[1].config.name);
     })
-
-  });
+ });
 
  

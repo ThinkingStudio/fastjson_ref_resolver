@@ -11,8 +11,24 @@ function RefResolver(o) {
     this.root = o;
 }
 
+
 RefResolver.prototype.resolve = function() {
     var root = this.root;
+    function safeEval(expression) {
+        var v = root;
+        var refs = expression.split(/[\.\[\]]+/);
+        for (var i = 0, j = refs.length; i < j; ++i) {
+            var ref = refs[i];
+            if (!ref) continue;
+            if (isNaN(ref)) {
+                v = v[ref];
+            } else {
+                v = v[parseInt(ref)];
+            }
+        }
+        return v;
+    }
+
     function process(o, context, key) {
         // console.log(o);
         // console.log(context);
@@ -25,8 +41,8 @@ RefResolver.prototype.resolve = function() {
                     process(v, o, p);
                 } else {
                     if ('$ref' == p) {
-                        v = "root".concat(v.substring(1));
-                        var v2 = eval(v);
+                        v = (v.substring(1));
+                        var v2 = safeEval(v);
                         context[key] = v2;
                     }
                 }

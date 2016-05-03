@@ -1,7 +1,7 @@
 {
   "name": "fastjson_ref_resolver",
   "id": "fastjson_ref_resolver",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "A library to resolve circular references exported by FastJson library",
   "keywords": [
     "json",
@@ -12,13 +12,12 @@
   "homepage": "https://github.com/greenlaw110/fastjson_ref_resolver",
   "repository": {
     "type": "git",
-    "url": "https://github.com/greenlaw110/fastjson_ref_resolver"
+    "url": "git+https://github.com/greenlaw110/fastjson_ref_resolver.git"
   },
   "bugs": {
     "url": "https://github.com/greenlaw110/fastjson_ref_resolver/issues"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "main": "./fastjson_ref_resolver.js",
   "engines": {
     "node": ">=0.4"
@@ -43,5 +42,9 @@
     "gulp-rename": "*",
     "gulp-replace": "*",
     "del": "*"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "license": "MIT"
 }
